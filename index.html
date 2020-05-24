@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Copyright 2020 Dylan Sharhon -->
+
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#000080">
+  <meta name="application-name" content="μcalc">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="μcalc">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="icon_apple_96.png">
+  <link rel="icon" href="icon_24.png" type="image/x-icon">
+  <link rel="manifest" href="manifest.json">
+
+  <title>μcalc</title>
+
+  <!--script src="libs/algebrite.bundle-for-browser.js"></script-->
+  <script src="libs/math.min.js"></script>
+  <link rel="stylesheet" href="libs/normalize.css">
+  <link rel="stylesheet" href="ucalc.css">
+  <script type="module"   src="ucalc.js"></script>
+</head>
+<body>
+  <table id="layout">
+    <tr>
+      <td id="history">
+        <div id="scrollable">
+          <div class="input">1+1</div>
+          <div class="output">2</div>
+          <div class="input">1+1</div>
+          <div class="output">2</div>
+          <div class="input">1+1</div>
+          <div class="output">2</div>
+          <div class="input">1+1</div>
+          <div class="output">2</div>
+          <div class="input">1+1</div>
+          <div class="output">2</div>
+          <div class="input">1+1</div>
+          <div class="output">2</div>
+        </div>
+      </td>
+    </tr>
+    <!--tr id="working" hidden>
+      <td>
+        <div>CALCULATING</div>
+      </td>
+    </tr-->
+    <tr>
+      <td id="input"><span id="a"></span><span id="b"></span><span id="c"></span></td>
+    </tr>
+    <tr>
+      <td id="keypad">
+
+        <!-- Need actual <button> elements to prevent iOS double-tap zoom -->
+        <table id="page0" class="page">
+          <tr>
+            <td width="20%"><button id="page0-1" class="fns">ƒ</button></td>
+            <td width="20%"></td>
+            <td width="20%"><button id="left" class="cmd">&lt;</button></td>
+            <td width="20%"><button id="right" class="cmd">&gt;</button></td>
+            <td width="20%"><button id="delete" class="cmd">DEL</button></td>
+          </tr>
+          <tr>
+            <td><button class="fn">ln</button></td>
+            <td><button class="fn">sqrt</button></td>
+            <td><button class="fn">sin</button></td>
+            <td><button class="fn">cos</button></td>
+            <td><button class="fn">tan</button></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><button class="op">^</button></td>
+            <td><button class="op">(</button></td>
+            <td><button class="op">)</button></td>
+            <td><button class="op">/</button></td>
+          </tr>
+          <tr>
+            <td><button class="exp">e</button></td>
+            <td><button class="no">7</button></td>
+            <td><button class="no">8</button></td>
+            <td><button class="no">9</button></td>
+            <td><button class="op">*</button></td>
+          </tr>
+          <tr>
+            <td><button class="co">π</button></td>
+            <td><button class="no">4</button></td>
+            <td><button class="no">5</button></td>
+            <td><button class="no">6</button></td>
+            <td><button class="op">-</button></td>
+          </tr>
+          <tr>
+            <td><button class="co">j</button></td>
+            <td><button class="no">1</button></td>
+            <td><button class="no">2</button></td>
+            <td><button class="no">3</button></td>
+            <td><button class="op">+</button></td>
+          </tr>
+          <tr>
+            <td><button id="page0-2" class="cos">...</button></td>
+            <td><button class="no">0</button></td>
+            <td><button class="no">.</button></td>
+            <td colspan="2"><button id="enter" class="enter">ENTER</button></td>
+          </tr>
+        </table>
+
+        <table id="page1" class="page" hidden>
+          <tr>
+            <td width="20%"><button id="page1-0" class="fns active">ƒ</td>
+            <td width="20%"></td>
+            <td width="20%"><button id="copy1" class="cmd">COPY</td>
+            <td width="20%"><button id="paste1" class="cmd">PASTE</td>
+            <td width="20%"><button id="reset" class="cmd">CLS</td>
+          </tr>
+          <tr>
+            <td><button class="fn">ln</button></td>
+            <td><button class="fn">sqrt</button></td>
+            <td><button class="fn">sin</button></td>
+            <td><button class="fn">cos</button></td>
+            <td><button class="fn">tan</button></td>
+          </tr>
+          <tr>
+            <td><button class="fn">log2</button></td>
+            <td><button class="fn">log10</button></td>
+            <td><button class="fn">asin</button></td>
+            <td><button class="fn">acos</button></td>
+            <td><button class="fn">atan</button></td>
+          </tr>
+          <tr>
+            <td><button class="fn">mod</button></td>
+            <td></td>
+            <td><button class="fn">sinh</button></td>
+            <td><button class="fn">cosh</button></td>
+            <td><button class="fn">tanh</button></td>
+          </tr>
+          <tr>
+            <td><button class="fn">fact</button></td>
+            <td><button class="fn">gamma</button></td>
+            <td><button class="fn">asinh</button></td>
+            <td><button class="fn">acosh</button></td>
+            <td><button class="fn">atanh</button></td>
+          </tr>
+          <tr>
+            <td><button class="fn">abs</button></td>
+            <td><button class="fn">arg</button></td>
+            <td><button class="fn">conj</button></td>
+          </tr>
+          <tr>
+            <td id="page1-2"><button class="cos">...</button></td>
+          </tr>
+        </table>
+
+        <table id="page2" class="buttons" hidden>
+          <tr>
+            <td width="20%"><button id="page2-1" class="fns">f</button></td>
+            <td width="20%"></td>
+            <td width="20%"><button id="copy2" class="cmd">COPY</button></td>
+            <td width="20%"><button id="paste2" class="cmd">PASTE</button></td>
+            <td width="20%"><button id="version" class="info">^_`</button></td>
+          </tr>
+          <tr>
+            <td colspan="4"></td>
+            <td><button id="refresh" class="info" onclick="location=location">***</button></td>
+          </td>
+          <tr>
+            <td></td>
+            <td><button class="co">m_e</button></td>
+            <td><button class="co">m_p</button></td>
+            <td><button class="co">m_n</button></td>
+          </tr>
+          <tr>
+            <td><button class="co">e</button></td>
+            <td><button class="co">q_e</button></td>
+            <td><button class="co">ε_0</button></td>
+            <td><button class="co">µ_0</button></td>
+          </tr>
+          <tr>
+            <td><button class="co">π</button></td>
+            <td><button class="co">k_B</button></td>
+            <td><button class="co">N_A</button></td>
+            <td><button class="co">f_Cs</button></td>
+          </tr>
+          <tr>
+            <td><button class="co">j</button></td>
+            <td><button class="co">¢</button></td>
+            <td><button class="co">G</button></td>
+            <td><button class="co">ħ</button></td>
+          </tr>
+          <tr>
+            <td><button id="page2-0" class="cos active">...</button></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <!--form class="modal"><textarea id="copyer">copyme</textarea></form-->
+</body>
+</html>
