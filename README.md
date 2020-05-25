@@ -18,5 +18,6 @@ Uses [math.js](https://mathjs.org/) by [Jos de Jong](https://github.com/josdejon
 * Symbolic math (solver, simplifier, calculus, etc.)
 * Compact physical constant symbols
 * Alternate unit modes (degrees, eV)
+* Keyboard input for PC use
 * Save state between page loads
 * App store entries
