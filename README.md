@@ -5,7 +5,7 @@ An old-skool calculator app.
 
 By Dylan Sharhon.
 
-Uses [math.js](https://mathjs.org/) by [Jos de Jong](https://github.com/josdejong).
+Uses [math.js](https://mathjs.org/) by [Jos de Jong](https://github.com/josdejong) et al.
 
 ## Features
 * No nonsense minimalist mobile interface
