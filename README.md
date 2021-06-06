@@ -1,7 +1,7 @@
 
 ![logo](icon_72.png)
-# Calc86
-A minimalist scientific calculator app.
+# calc86
+A small scientific calculator app.
 
 By Dylan Sharhon.
 
