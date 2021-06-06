@@ -1,11 +1,12 @@
 
 ![logo](icon_72.png)
-# µcalc
-An old-skool calculator app.
+# calc86
+A minimalist scientific calculator app.
 
 By Dylan Sharhon.
 
 Uses [math.js](https://mathjs.org/) by [Jos de Jong](https://github.com/josdejong) et al.
+Uses [More Perfect DOS VGA](https://laemeur.sdf.org/fonts/) by Zeh Fernando and LÆMEUR
 
 ## Features
 * No nonsense minimalist mobile interface
@@ -20,4 +21,3 @@ Uses [math.js](https://mathjs.org/) by [Jos de Jong](https://github.com/josdejon
 * Alternate unit modes (degrees, eV)
 * Keyboard input for PC use
 * Save state between page loads
-* App store entries
