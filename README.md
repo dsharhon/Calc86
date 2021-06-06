@@ -1,6 +1,6 @@
 
 ![logo](icon_72.png)
-# calc86
+# Calc86
 A small scientific calculator app by Dylan Sharhon
 
 https://dsharhon.github.io/calc86/
