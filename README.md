@@ -1,9 +1,11 @@
 
 ![logo](icon_72.png)
 # Calc86
-A small scientific calculator app by Dylan Sharhon
+A minimalist scientific calculator app.
 
-https://dsharhon.github.io/calc86/
+By Dylan Sharhon.
+
+Uses [math.js](https://mathjs.org/) by [Jos de Jong](https://github.com/josdejong) et al. and [More Perfect DOS VGA](https://laemeur.sdf.org/fonts/) by Zeh Fernando and LÆMEUR.
 
 ## Features
 * No nonsense minimalist mobile interface
@@ -18,7 +20,3 @@ https://dsharhon.github.io/calc86/
 * Alternate unit modes (degrees, eV)
 * Keyboard input for PC use
 * Save state between page loads
-
-## Credits
-* [math.js](https://mathjs.org/) by [Jos de Jong](https://github.com/josdejong) et al.
-* [More Perfect DOS VGA](https://laemeur.sdf.org/fonts/) by Zeh Fernando and LÆMEUR

@@ -1,8 +1,7 @@
 {
-  "name": "calc86",
+  "name": "Calc86",
   "display": "standalone",
   "start_url": "/index.html",
-  "short_name": "calc86",
   "theme_color": "#000008",
   "description": "A pretty cool scientific calculator",
   "orientation": "portrait",
@@ -12,7 +11,13 @@
   "icons": [
     {
       "src": "icon_24.png",
-      "sizes": "24x24"
+      "sizes": "24x24",
+      "type": "image/png"
+    },
+	{
+      "src": "icon_maskable_196.png",
+      "sizes": "196x196",
+      "type": "image/png"
     }
   ]
 }
