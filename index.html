@@ -2,56 +2,39 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <!-- Copyright 2020 Dylan Sharhon -->
+  <title>Calc86</title>
+  <!-- By Dylan Sharhon, 2021 -->
 
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#000080">
-  <meta name="application-name" content="μcalc">
+  <meta name="application-name" content="Calc86">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="μcalc">
+  <meta name="apple-mobile-web-app-title" content="Calc86">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <link rel="apple-touch-icon" href="icon_apple_96.png">
   <link rel="icon" href="icon_24.png" type="image/x-icon">
   <link rel="manifest" href="manifest.json">
 
-  <title>μcalc</title>
-
-  <!--script src="libs/algebrite.bundle-for-browser.js"></script-->
-  <script src="libs/math.min.js"></script>
+  <script src="libs/math.js"></script>
   <link rel="stylesheet" href="libs/normalize.css">
-  <link rel="stylesheet" href="ucalc.css">
-  <script type="module"   src="ucalc.js"></script>
+  <link rel="stylesheet" href="index.css">
+  <script type="module" src="index.js"></script>
 </head>
 <body>
   <table id="layout">
-    <tr>
+    <tr id="history-row">
       <td id="history">
         <div id="scrollable">
-          <div class="input">1+1</div>
-          <div class="output">2</div>
-          <div class="input">1+1</div>
-          <div class="output">2</div>
-          <div class="input">1+1</div>
-          <div class="output">2</div>
-          <div class="input">1+1</div>
-          <div class="output">2</div>
-          <div class="input">1+1</div>
-          <div class="output">2</div>
           <div class="input">1+1</div>
           <div class="output">2</div>
         </div>
       </td>
     </tr>
-    <!--tr id="working" hidden>
-      <td>
-        <div>CALCULATING</div>
-      </td>
-    </tr-->
-    <tr>
+    <tr id="input-row">
       <td id="input"><span id="a"></span><span id="b"></span><span id="c"></span></td>
     </tr>
-    <tr>
+    <tr id="keypad-row">
       <td id="keypad">
 
         <!-- Need actual <button> elements to prevent iOS double-tap zoom -->
@@ -78,7 +61,7 @@
             <td><button class="op">/</button></td>
           </tr>
           <tr>
-            <td><button class="exp">e</button></td>
+            <td><button class="co">e</button></td>
             <td><button class="no">7</button></td>
             <td><button class="no">8</button></td>
             <td><button class="no">9</button></td>
@@ -92,7 +75,7 @@
             <td><button class="op">-</button></td>
           </tr>
           <tr>
-            <td><button class="co">j</button></td>
+            <td><button class="co">i</button></td>
             <td><button class="no">1</button></td>
             <td><button class="no">2</button></td>
             <td><button class="no">3</button></td>
@@ -112,7 +95,7 @@
             <td width="20%"></td>
             <td width="20%"><button id="copy1" class="cmd">COPY</td>
             <td width="20%"><button id="paste1" class="cmd">PASTE</td>
-            <td width="20%"><button id="reset" class="cmd">CLS</td>
+            <td width="20%"><button id="cls1" class="cmd">CLS</td>
           </tr>
           <tr>
             <td><button class="fn">ln</button></td>
@@ -122,47 +105,46 @@
             <td><button class="fn">tan</button></td>
           </tr>
           <tr>
-            <td><button class="fn">log2</button></td>
-            <td><button class="fn">log10</button></td>
+            <td><button class="fn">log</button></td>
+            <td></td>
             <td><button class="fn">asin</button></td>
             <td><button class="fn">acos</button></td>
             <td><button class="fn">atan</button></td>
           </tr>
           <tr>
-            <td><button class="fn">mod</button></td>
-            <td></td>
+			<td><button class="fn">abs</button></td>
+			<td></td>
             <td><button class="fn">sinh</button></td>
             <td><button class="fn">cosh</button></td>
             <td><button class="fn">tanh</button></td>
           </tr>
           <tr>
-            <td><button class="fn">fact</button></td>
-            <td><button class="fn">gamma</button></td>
+			<td><button class="fn">arg</button></td>
+            <td></td>
             <td><button class="fn">asinh</button></td>
             <td><button class="fn">acosh</button></td>
             <td><button class="fn">atanh</button></td>
           </tr>
           <tr>
-            <td><button class="fn">abs</button></td>
-            <td><button class="fn">arg</button></td>
-            <td><button class="fn">conj</button></td>
+			<td><button class="fn">conj</button></td>
+			<td><button class="fn">fact</button></td>
+			<td><button class="fn">gamma</button></td>
           </tr>
           <tr>
-            <td id="page1-2"><button class="cos">...</button></td>
+			<td><button id="page1-2" class="cos">...</button></td>
           </tr>
         </table>
 
         <table id="page2" class="buttons" hidden>
           <tr>
-            <td width="20%"><button id="page2-1" class="fns">f</button></td>
+            <td width="20%"><button id="page2-1" class="fns">ƒ</button></td>
             <td width="20%"></td>
             <td width="20%"><button id="copy2" class="cmd">COPY</button></td>
             <td width="20%"><button id="paste2" class="cmd">PASTE</button></td>
-            <td width="20%"><button id="version" class="info">^_`</button></td>
+            <td width="20%"><button id="cls2" class="cmd">CLS</td>
           </tr>
           <tr>
-            <td colspan="4"></td>
-            <td><button id="refresh" class="info" onclick="location=location">***</button></td>
+            <td><button class="info">&nbsp;</button></td>
           </td>
           <tr>
             <td></td>
@@ -183,18 +165,51 @@
             <td><button class="co">f_Cs</button></td>
           </tr>
           <tr>
-            <td><button class="co">j</button></td>
+            <td><button class="co">i</button></td>
             <td><button class="co">¢</button></td>
             <td><button class="co">G</button></td>
             <td><button class="co">ħ</button></td>
           </tr>
           <tr>
             <td><button id="page2-0" class="cos active">...</button></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><button id="help-button" class="cmd">?</button></td>
           </tr>
         </table>
       </td>
     </tr>
+    <tr id="help-row" hidden="true">
+      <td id="help">
+        <div id="help-scrollable">
+          Calc86 v2
+          (c) 2021 Dylan Sharhon
+          Powered by math.js (Apache 2.0)
+          Jos de Jong et al.
+          More Perfect DOS VGA font by
+          Zeh Fernando and LÆMEUR
+          <span id="help-constants">
+            CONSTANTS
+            m_e mass of electron
+            m_p mass of proton
+            m_n mass of neutron
+            q_e elementary charge
+            ε_0 vacuum permittivity
+            µ_0 vacuum permeability
+            k_B Boltzmann constant
+            N_A Avogadro constant
+            f_Cs caesium standard
+            ¢ speed of light
+            G gravitational constant
+            ħ reduced Planck constant
+            e Euler's number
+            i imaginary unit
+          </span>
+          <img src="si.png" style="display:block; width:100%">
+        </div>
+      </td>
+    </tr>
   </table>
-  <!--form class="modal"><textarea id="copyer">copyme</textarea></form-->
 </body>
 </html>
