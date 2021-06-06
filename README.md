@@ -3,6 +3,8 @@
 # calc86
 A small scientific calculator app by Dylan Sharhon
 
+https://dsharhon.github.io/calc86/
+
 ## Features
 * No nonsense minimalist mobile interface
 * Numerical expressions and functions
