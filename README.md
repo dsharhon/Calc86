@@ -5,8 +5,7 @@ A minimalist scientific calculator app.
 
 By Dylan Sharhon.
 
-Uses [math.js](https://mathjs.org/) by [Jos de Jong](https://github.com/josdejong) et al.
-Uses [More Perfect DOS VGA](https://laemeur.sdf.org/fonts/) by Zeh Fernando and LÆMEUR
+Uses [math.js](https://mathjs.org/) by [Jos de Jong](https://github.com/josdejong) et al. and [More Perfect DOS VGA](https://laemeur.sdf.org/fonts/) by Zeh Fernando and LÆMEUR.
 
 ## Features
 * No nonsense minimalist mobile interface
