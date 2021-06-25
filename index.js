@@ -1,4 +1,4 @@
-// calc86 by Dylan Sharhon, 2021
+// Calc86 by Dylan Sharhon, 2021
 const $  = id  => document.getElementById(id)
 const $$ = css => document.querySelectorAll(css)
 
@@ -302,3 +302,6 @@ $('help').onclick = () => {
 }
 
 display.reset()
+
+// Cache PWA assets
+navigator.serviceWorker.register('cache.js')

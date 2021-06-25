@@ -1,23 +1,17 @@
 {
   "name": "Calc86",
+  "start_url": "/Calc86/",
   "display": "standalone",
-  "start_url": "/calc86/",
-  "theme_color": "#000008",
-  "description": "A pretty cool scientific calculator",
   "orientation": "portrait",
   "background_color": "#000000",
-  "related_applications": [],
-  "prefer_related_applications": false,
-  "icons": [
-    {
-      "src": "icon_24.png",
-      "sizes": "24x24",
-      "type": "image/png"
-    },
-	{
-      "src": "icon_maskable_196.png",
-      "sizes": "196x196",
-      "type": "image/png"
-    }
-  ]
+  "theme_color": "#000008",
+  "icons": [{
+    "src": "icon_24.png",
+    "sizes": "24x24",
+    "type": "image/png"
+  }, {
+    "src": "icon_maskable_196.png",
+    "sizes": "196x196",
+    "type": "image/png"
+  }]
 }
